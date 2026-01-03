@@ -3,24 +3,37 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Cpu, DollarSign, Play, Network, Users, Zap, Target, Brain, BarChart3 } from 'lucide-react';
 import Button from '../components/ui/Button';
 import HeroBlueprint from '../components/HeroBlueprint';
+import ContactSection from '../components/ContactSection';
 import { ButtonVariant } from '../types';
 
 const Home: React.FC = () => {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-[#060912] relative">
+      {/* Global grid background - fine grid */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px)`,
+          backgroundSize: '24px 24px',
+        }}
+      />
+      {/* Global grid background - coarse grid */}
+      <div
+        className="fixed inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(14, 165, 233, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(14, 165, 233, 0.06) 1px, transparent 1px)`,
+          backgroundSize: '120px 120px',
+        }}
+      />
+
       {/* Hero Section */}
       <HeroBlueprint />
 
       {/* Section 1: Tech/Architecture Preview - Blue tint */}
-      <section className="py-24 bg-[#060810] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-[#060810] to-sky-950/10 pointer-events-none"></div>
-        <div
-          className="absolute inset-0 pointer-events-none opacity-30"
-          style={{
-            backgroundImage: `linear-gradient(rgba(14, 165, 233, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(14, 165, 233, 0.08) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
-          }}
-        />
+      <section className="py-24 bg-transparent text-white relative overflow-hidden z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-900/20 via-[#060912]/80 to-sky-950/10 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -108,8 +121,8 @@ const Home: React.FC = () => {
       </section>
 
       {/* Section 2: Mission Preview - Red tint */}
-      <section className="py-24 bg-[#0a0608] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-[#0a0608] to-red-950/10 pointer-events-none"></div>
+      <section className="py-24 bg-transparent text-white relative overflow-hidden z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-[#060912]/80 to-red-950/10 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -168,8 +181,8 @@ const Home: React.FC = () => {
       </section>
 
       {/* Section 3: Blueprint/0→1 Preview - Teal tint */}
-      <section className="py-24 bg-[#080c0c] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-transparent to-teal-950/20 pointer-events-none"></div>
+      <section className="py-24 bg-transparent text-white relative overflow-hidden z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-[#060912]/80 to-teal-950/20 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -248,8 +261,8 @@ const Home: React.FC = () => {
       </section>
 
       {/* Section 4: Engine/Demo Preview - Cyan/Teal tint */}
-      <section className="py-24 bg-[#080a0b] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-transparent to-cyan-950/20 pointer-events-none"></div>
+      <section className="py-24 bg-transparent text-white relative overflow-hidden z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-[#060912]/80 to-cyan-950/20 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
@@ -318,20 +331,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-[#060912] text-white relative overflow-hidden">
-        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to See Intelligence in Action?</h2>
-          <p className="text-xl text-slate-400 mb-10">
-            Join the forward-thinking institutions piloting the next generation of educational infrastructure.
-          </p>
-          <div className="flex justify-center">
-            <Button variant={ButtonVariant.PRIMARY} className="bg-white text-slate-900 hover:bg-slate-100 shadow-none">
-              Coming Soon
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Contact Section */}
+      <ContactSection />
     </div>
   );
 };
