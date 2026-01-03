@@ -469,14 +469,14 @@ const HeroVisual: React.FC = () => {
                   />
                 </div>
                 <div
-                  className="text-5xl md:text-6xl font-bold text-white tracking-wide"
+                  className="text-4xl md:text-6xl font-bold text-white tracking-wide"
                   style={{
                     textShadow: '0 0 40px rgba(16, 185, 129, 0.6), 0 0 80px rgba(16, 185, 129, 0.3)',
                   }}
                 >
                   AEIOS
                 </div>
-                <div className="text-[11px] font-medium uppercase tracking-[0.35em] text-emerald-400/50 mt-3">Intelligence Layer</div>
+                <div className="text-[9px] md:text-[11px] font-medium uppercase tracking-[0.2em] md:tracking-[0.35em] text-emerald-400/50 mt-3">Intelligence Layer</div>
               </>
             )}
           </motion.div>
@@ -486,7 +486,7 @@ const HeroVisual: React.FC = () => {
       {/* Status Label */}
       <motion.div layout="position" className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap">
         <div
-          className="flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.2em] px-5 py-2.5 rounded-full backdrop-blur-sm"
+          className="flex items-center gap-2 text-[9px] md:text-[11px] font-medium uppercase tracking-[0.15em] md:tracking-[0.2em] px-3 md:px-5 py-2 md:py-2.5 rounded-full backdrop-blur-sm"
           style={{
             background: 'rgba(6, 9, 18, 0.8)',
             border: `1px solid ${isLegacy ? 'rgba(239, 68, 68, 0.2)' : 'rgba(16, 185, 129, 0.2)'}`,
@@ -494,7 +494,7 @@ const HeroVisual: React.FC = () => {
           }}
         >
           <span
-            className="h-2 w-2 rounded-full animate-pulse"
+            className="h-2 w-2 rounded-full animate-pulse flex-shrink-0"
             style={{
               background: isLegacy ? '#ef4444' : '#10b981',
               boxShadow: isLegacy ? '0 0 8px #ef4444' : '0 0 8px #10b981',

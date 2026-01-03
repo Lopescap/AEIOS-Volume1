@@ -214,8 +214,14 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
       {navItems.map((item, idx) => {
         const isVisible = revealPhase >= 2;
         const isAtNav = sphereAtNav[idx];
-        const totalSpread = isMobile ? 20 : 36;
-        const centerOffset = ((idx - 2) * totalSpread) / 4;
+        // Even spacing: position each dot as percentage from center
+        // 5 dots at positions: 10%, 30%, 50%, 70%, 90% of a centered area
+        const mobileSpacing = 15; // percentage points between dots
+        const desktopSpacing = 9; // rem between dots
+        const spacing = isMobile ? mobileSpacing : desktopSpacing;
+        const centerOffset = isMobile
+          ? `${(idx - 2) * spacing}vw`  // Use vw for mobile
+          : `${(idx - 2) * spacing}rem`; // Use rem for desktop
         const navItemSpacing = isMobile ? 6 : 10;
         const navItemPosition = (idx - 2) * navItemSpacing;
         const appearDelay = idx * 150;
@@ -225,7 +231,7 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
             key={idx}
             className="absolute flex items-center transition-all ease-out"
             style={{
-              left: isAtNav ? `calc(50% + ${navItemPosition}rem)` : `calc(50% + ${centerOffset}rem)`,
+              left: isAtNav ? `calc(50% + ${navItemPosition}rem)` : `calc(50% + ${centerOffset})`,
               top: isAtNav ? 'clamp(2rem, 3vw, 2.5rem)' : 'calc(50% + 5rem)',
               transform: 'translate(-50%, -50%)',
               opacity: isVisible ? 1 : 0,

@@ -105,21 +105,23 @@ const Blueprint: React.FC = () => {
         </header>
 
         {/* Navigation */}
-        <nav className="flex justify-center mb-12">
-          <div className="inline-flex gap-1 p-2 bg-slate-900/80 rounded-xl border border-white/10">
-            {navItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => setActiveSection(item.id)}
-                className={`px-4 py-2.5 text-sm font-medium rounded-lg transition-all ${
-                  activeSection === item.id
-                    ? 'bg-slate-800 text-white shadow-lg ring-1 ring-teal-500/30'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
+        <nav className="mb-12 -mx-4 px-4 overflow-x-auto scrollbar-hide">
+          <div className="flex justify-center min-w-max">
+            <div className="inline-flex gap-1 p-2 bg-slate-900/80 rounded-xl border border-white/10">
+              {navItems.map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveSection(item.id)}
+                  className={`px-3 sm:px-4 py-2.5 text-xs sm:text-sm font-medium rounded-lg transition-all whitespace-nowrap ${
+                    activeSection === item.id
+                      ? 'bg-slate-800 text-white shadow-lg ring-1 ring-teal-500/30'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </div>
         </nav>
 
