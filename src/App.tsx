@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Vision from './components/Vision'
 import Website from './components/Website'
@@ -11,8 +11,20 @@ import Engine from './pages/Engine'
 function App() {
   const [showWebsite, setShowWebsite] = useState(false)
 
+  // Scroll to top when website loads after animation
+  useEffect(() => {
+    if (showWebsite) {
+      window.scrollTo(0, 0)
+    }
+  }, [showWebsite])
+
+  const handleAnimationComplete = () => {
+    window.scrollTo(0, 0)
+    setShowWebsite(true)
+  }
+
   if (!showWebsite) {
-    return <Vision onAnimationComplete={() => setShowWebsite(true)} />
+    return <Vision onAnimationComplete={handleAnimationComplete} />
   }
 
   return (
