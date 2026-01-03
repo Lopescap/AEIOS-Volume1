@@ -214,24 +214,29 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
       {navItems.map((item, idx) => {
         const isVisible = revealPhase >= 2;
         const isAtNav = sphereAtNav[idx];
-        // Even spacing: position each dot as percentage from center
-        // 5 dots at positions: 10%, 30%, 50%, 70%, 90% of a centered area
-        const mobileSpacing = 15; // percentage points between dots
-        const desktopSpacing = 9; // rem between dots
-        const spacing = isMobile ? mobileSpacing : desktopSpacing;
-        const centerOffset = isMobile
-          ? `${(idx - 2) * spacing}vw`  // Use vw for mobile
-          : `${(idx - 2) * spacing}rem`; // Use rem for desktop
-        const navItemSpacing = isMobile ? 6 : 10;
-        const navItemPosition = (idx - 2) * navItemSpacing;
+        // Initial positions: place dots at explicit percentage positions for even spacing
+        // 5 dots at: 10%, 30%, 50%, 70%, 90% (20% apart, perfectly equidistant)
+        const mobilePositions = ['10%', '30%', '50%', '70%', '90%'];
+        const desktopCenterOffset = `${(idx - 2) * 9}rem`; // rem between dots for desktop
+        // Nav position: use vw on mobile for responsive spacing, rem on desktop
+        const mobileNavSpacing = 16; // vw
+        const desktopNavSpacing = 10; // rem
+        const navPosition = isMobile
+          ? `${(idx - 2) * mobileNavSpacing}vw`
+          : `${(idx - 2) * desktopNavSpacing}rem`;
         const appearDelay = idx * 150;
+
+        // Calculate initial left position
+        const initialLeft = isMobile
+          ? mobilePositions[idx]
+          : `calc(50% + ${desktopCenterOffset})`;
 
         return (
           <div
             key={idx}
             className="absolute flex items-center transition-all ease-out"
             style={{
-              left: isAtNav ? `calc(50% + ${navItemPosition}rem)` : `calc(50% + ${centerOffset})`,
+              left: isAtNav ? `calc(50% + ${navPosition})` : initialLeft,
               top: isAtNav ? 'clamp(2rem, 3vw, 2.5rem)' : 'calc(50% + 5rem)',
               transform: 'translate(-50%, -50%)',
               opacity: isVisible ? 1 : 0,
@@ -251,10 +256,11 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
                   : `0 0 1.25rem ${item.color}80, inset -3px -3px 8px rgba(0,0,0,0.4), inset 3px 3px 8px rgba(255,255,255,0.2)`,
               }}
             />
+            {/* Labels - only show on desktop when at nav position */}
             <div
               className="flex items-center transition-all duration-300"
               style={{
-                opacity: isAtNav ? 1 : 0,
+                opacity: isAtNav && !isMobile ? 1 : 0,
                 transform: isAtNav ? 'translateX(0)' : 'translateX(-10px)',
                 transitionDelay: isAtNav ? '200ms' : '0ms',
                 marginLeft: '0.5rem',
