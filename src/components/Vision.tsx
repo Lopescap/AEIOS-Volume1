@@ -218,12 +218,10 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
         // 5 dots at: 10%, 30%, 50%, 70%, 90% (20% apart, perfectly equidistant)
         const mobilePositions = ['10%', '30%', '50%', '70%', '90%'];
         const desktopCenterOffset = `${(idx - 2) * 9}rem`; // rem between dots for desktop
-        // Nav position: use vw on mobile for responsive spacing, rem on desktop
-        const mobileNavSpacing = 5; // vw - matches NavBar's tight centered grouping
+        // Nav position: use rem for consistent spacing matching NavBar
+        const mobileNavSpacing = 2.5; // rem - matches NavBar's 40px center-to-center (p-2 + gap-4 + p-2)
         const desktopNavSpacing = 10; // rem
-        const navPosition = isMobile
-          ? `${(idx - 2) * mobileNavSpacing}vw`
-          : `${(idx - 2) * desktopNavSpacing}rem`;
+        const navPosition = `${(idx - 2) * (isMobile ? mobileNavSpacing : desktopNavSpacing)}rem`;
         const appearDelay = idx * 150;
 
         // Calculate initial left position
