@@ -258,7 +258,8 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
             <div
               className="flex items-center transition-all duration-300"
               style={{
-                opacity: isAtNav && !isMobile ? 1 : 0,
+                display: isMobile ? 'none' : undefined,
+                opacity: isAtNav ? 1 : 0,
                 transform: isAtNav ? 'translateX(0)' : 'translateX(-10px)',
                 transitionDelay: isAtNav ? '200ms' : '0ms',
                 marginLeft: '0.5rem',

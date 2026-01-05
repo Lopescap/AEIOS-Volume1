@@ -104,15 +104,21 @@ const NavBar = () => {
           })}
         </div>
 
-        {/* Mobile: Dots only (visible on mobile, hidden on md+) */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex md:hidden items-center gap-4">
+        {/* Mobile: Dots only - absolute positioned to match intro animation */}
+        {/* Uses same formula: calc(50% + (idx - 2) * 2.5rem) */}
+        <div className="absolute inset-0 md:hidden">
           {navItems.map((item, idx) => {
             const isActive = location.pathname === item.path;
             return (
               <Link
                 key={idx}
                 to={item.path}
-                className="p-2 cursor-pointer transition-opacity hover:opacity-80"
+                className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-opacity hover:opacity-80"
+                style={{
+                  left: `calc(50% + ${(idx - 2) * 2.5}rem)`,
+                  transform: 'translateX(-50%) translateY(-50%)',
+                  padding: '12px', // Tap target
+                }}
               >
                 <div
                   className="rounded-full transition-all"
