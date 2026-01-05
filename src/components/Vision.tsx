@@ -590,14 +590,14 @@ const Vision: React.FC<VisionProps> = ({ onAnimationComplete }) => {
   // Generate snowflakes
   const generateSnowflakes = useCallback(() => {
     const flakes: SnowflakeProps[] = [];
-    const count = window.innerWidth < 768 ? 40 : 60;
+    const count = window.innerWidth < 768 ? 20 : 30;
     for (let i = 0; i < count; i++) {
       flakes.push({
         id: i,
-        size: Math.random() * 10 + 10,
+        size: Math.random() * 4 + 4,
         left: Math.random() * 100,
         animationDuration: Math.random() * 4 + 3,
-        opacity: Math.random() * 0.4 + 0.2,
+        opacity: Math.random() * 0.2 + 0.1,
         windOffset: Math.random() * 80 - 40,
       });
     }
