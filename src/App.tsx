@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
 import Vision from './components/Vision'
 import Website from './components/Website'
 import Home from './pages/Home'
@@ -31,18 +33,22 @@ function App() {
   }
 
   return (
-    <Router>
-      <Website>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/technology" element={<Technology />} />
-          <Route path="/mission" element={<Mission />} />
-          <Route path="/blueprint" element={<Blueprint />} />
-          <Route path="/engine" element={<Engine />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Website>
-    </Router>
+    <>
+      <Router>
+        <Website>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/technology" element={<Technology />} />
+            <Route path="/mission" element={<Mission />} />
+            <Route path="/blueprint" element={<Blueprint />} />
+            <Route path="/engine" element={<Engine />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Website>
+      </Router>
+      <SpeedInsights />
+      <Analytics />
+    </>
   )
 }
 
