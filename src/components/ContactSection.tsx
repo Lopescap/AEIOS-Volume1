@@ -57,26 +57,35 @@ const ContactSection: React.FC = () => {
     setNotification({ message, type });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       showNotification('Please fill in all fields.', 'error');
       return;
     }
-
     if (!isValidEmail(formData.email)) {
       showNotification('Please enter a valid email address.', 'error');
       return;
     }
 
-    // Success
-    console.log('Form submitted:', formData);
-    showNotification('Thank you! Your message has been sent.', 'success');
+    try {
+      const params = new URLSearchParams({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      });
 
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
+      await fetch(`https://services.leadconnectorhq.com/hooks/BxtB90E3ldvL87Qkp81K/webhook-trigger/c98dc8cc-5a1e-4b12-adfb-7c50e8c59bd7?${params}`, {
+        method: 'GET',
+        mode: 'no-cors'
+      });
+
+      showNotification('Thank you! Your message has been sent.', 'success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      showNotification('Something went wrong. Please try again.', 'error');
+    }
   };
 
   const hasValue = (fieldName: keyof FormData) => formData[fieldName].trim() !== '';
