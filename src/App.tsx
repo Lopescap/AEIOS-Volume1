@@ -9,7 +9,9 @@ import Blueprint from './pages/Blueprint'
 import Engine from './pages/Engine'
 
 function App() {
-  const [showWebsite, setShowWebsite] = useState(false)
+  const [showWebsite, setShowWebsite] = useState(() => {
+    return localStorage.getItem('aeios-intro-seen') === 'true'
+  })
 
   // Scroll to top when website loads after animation
   useEffect(() => {
@@ -19,6 +21,7 @@ function App() {
   }, [showWebsite])
 
   const handleAnimationComplete = () => {
+    localStorage.setItem('aeios-intro-seen', 'true')
     window.scrollTo(0, 0)
     setShowWebsite(true)
   }
