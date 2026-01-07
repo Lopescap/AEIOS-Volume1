@@ -103,7 +103,7 @@ const Snowflake = ({ id, size, left, animationDuration, opacity }: SnowflakeProp
 // ============================================
 const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: () => void }) => {
   const [revealPhase, setRevealPhase] = useState(0);
-  const [sphereAtNav, setSphereAtNav] = useState<boolean[]>([false, false, false, false, false]);
+  const [sphereAtNav, setSphereAtNav] = useState<boolean[]>([false, false, false, false]);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -116,7 +116,7 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
   useEffect(() => {
     if (!visible) {
       setRevealPhase(0);
-      setSphereAtNav([false, false, false, false, false]);
+      setSphereAtNav([false, false, false, false]);
       return;
     }
 
@@ -125,18 +125,17 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
     const t3 = setTimeout(() => setRevealPhase(3), 2200);
     const t4 = setTimeout(() => setRevealPhase(4), 2800);
 
-    const t5 = setTimeout(() => setSphereAtNav([true, false, false, false, false]), 3200);
-    const t6 = setTimeout(() => setSphereAtNav([true, true, false, false, false]), 3600);
-    const t7 = setTimeout(() => setSphereAtNav([true, true, true, false, false]), 4000);
-    const t8 = setTimeout(() => setSphereAtNav([true, true, true, true, false]), 4400);
-    const t9 = setTimeout(() => setSphereAtNav([true, true, true, true, true]), 4800);
+    const t5 = setTimeout(() => setSphereAtNav([true, false, false, false]), 3200);
+    const t6 = setTimeout(() => setSphereAtNav([true, true, false, false]), 3600);
+    const t7 = setTimeout(() => setSphereAtNav([true, true, true, false]), 4000);
+    const t8 = setTimeout(() => setSphereAtNav([true, true, true, true]), 4400);
 
     const tComplete = setTimeout(() => {
       if (onComplete) onComplete();
-    }, 5500);
+    }, 5100);
 
     return () => {
-      [t1, t2, t3, t4, t5, t6, t7, t8, t9, tComplete].forEach(clearTimeout);
+      [t1, t2, t3, t4, t5, t6, t7, t8, tComplete].forEach(clearTimeout);
     };
   }, [visible, onComplete]);
 
@@ -144,8 +143,7 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
     { num: '01', label: 'HOME', color: '#94a3b8' },
     { num: '02', label: 'TECHNOLOGY', color: '#38bdf8' },
     { num: '03', label: 'MISSION', color: '#ef4444' },
-    { num: '04', label: 'EARN', color: '#34d399' },
-    { num: '05', label: 'PREVIEW', color: '#2dd4bf' },
+    { num: '04', label: 'PREVIEW', color: '#2dd4bf' },
   ];
 
   const logoInNav = revealPhase >= 4;
@@ -215,13 +213,13 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
         const isVisible = revealPhase >= 2;
         const isAtNav = sphereAtNav[idx];
         // Initial positions: place dots at explicit percentage positions for even spacing
-        // 5 dots at: 10%, 30%, 50%, 70%, 90% (20% apart, perfectly equidistant)
-        const mobilePositions = ['10%', '30%', '50%', '70%', '90%'];
-        const desktopCenterOffset = `${(idx - 2) * 9}rem`; // rem between dots for desktop
+        // 4 dots at: 12.5%, 37.5%, 62.5%, 87.5% (25% apart, perfectly equidistant)
+        const mobilePositions = ['12.5%', '37.5%', '62.5%', '87.5%'];
+        const desktopCenterOffset = `${(idx - 1.5) * 9}rem`; // rem between dots for desktop
         // Nav position: use rem for consistent spacing matching NavBar
-        const mobileNavSpacing = 2.5; // rem - matches NavBar's 40px center-to-center (p-2 + gap-4 + p-2)
+        const mobileNavSpacing = 2.5; // rem - matches NavBar's 40px center-to-center
         const desktopNavSpacing = 10; // rem
-        const navPosition = `${(idx - 2) * (isMobile ? mobileNavSpacing : desktopNavSpacing)}rem`;
+        const navPosition = `${(idx - 1.5) * (isMobile ? mobileNavSpacing : desktopNavSpacing)}rem`;
         const appearDelay = idx * 150;
 
         // Calculate initial left position

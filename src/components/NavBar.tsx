@@ -5,7 +5,6 @@ const navItems = [
   { label: 'HOME', path: '/', color: '#94a3b8' },           // slate-400
   { label: 'TECHNOLOGY', path: '/technology', color: '#38bdf8' },  // sky-400
   { label: 'MISSION', path: '/mission', color: '#ef4444' },       // red-500
-  { label: 'EARN', path: '/blueprint', color: '#34d399' },   // emerald-400
   { label: 'PREVIEW', path: '/engine', color: '#2dd4bf' },         // teal-400
 ];
 
@@ -105,7 +104,7 @@ const NavBar = () => {
         </div>
 
         {/* Mobile: Dots only - absolute positioned to match intro animation */}
-        {/* Uses same formula: calc(50% + (idx - 2) * 2.5rem) */}
+        {/* Uses formula: calc(50% + (idx - 1.5) * 2.5rem) for 4 items */}
         <div className="absolute inset-0 md:hidden">
           {navItems.map((item, idx) => {
             const isActive = location.pathname === item.path;
@@ -115,7 +114,7 @@ const NavBar = () => {
                 to={item.path}
                 className="absolute top-1/2 -translate-y-1/2 cursor-pointer transition-opacity hover:opacity-80"
                 style={{
-                  left: `calc(50% + ${(idx - 2) * 2.5}rem)`,
+                  left: `calc(50% + ${(idx - 1.5) * 2.5}rem)`,
                   transform: 'translateX(-50%) translateY(-50%)',
                   padding: '12px', // Tap target
                 }}

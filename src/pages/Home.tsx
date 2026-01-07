@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Cpu, DollarSign, Play, Network, Users, Zap, Target, Brain, BarChart3 } from 'lucide-react';
+import { ArrowRight, Cpu, Play, Network, Users, Zap, Target, Brain } from 'lucide-react';
 import Button from '../components/ui/Button';
 import HeroBlueprint from '../components/HeroBlueprint';
 import ContactSection from '../components/ContactSection';
@@ -180,87 +180,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Section 3: Blueprint/0→1 Preview - Teal tint */}
-      <section className="py-24 bg-transparent text-white relative overflow-hidden z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-[#060912]/80 to-teal-950/20 pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-semibold mb-6">
-                <DollarSign className="w-3 h-3" />
-                INCENTIVE ARCHITECTURE
-              </div>
-              <h2 className="text-4xl font-bold mb-6">EARN</h2>
-              <p className="text-slate-400 text-lg mb-6">
-                The Engagement Allocated Reward Network (EARN)—an incentive architecture that rewards performance, encourages engagement,
-                and builds futures through intelligent allocation.
-              </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-slate-700">
-                  <span className="text-slate-300">Per Student Annually</span>
-                  <span className="text-2xl font-bold text-teal-400 font-mono">$2,000</span>
-                </div>
-                <div className="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg border border-slate-700">
-                  <span className="text-slate-300">K-12 Graduation Total</span>
-                  <span className="text-2xl font-bold text-green-400 font-mono">$14,000+</span>
-                </div>
-              </div>
-              <div className="flex gap-4 mb-8">
-                <div className="flex-1 text-center p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-                  <div className="text-xs text-blue-400 mb-1">Guaranteed</div>
-                  <div className="text-lg font-bold text-blue-400">37.5%</div>
-                </div>
-                <div className="flex-1 text-center p-3 bg-teal-500/10 border border-teal-500/30 rounded-lg">
-                  <div className="text-xs text-teal-400 mb-1">Performance</div>
-                  <div className="text-lg font-bold text-teal-400">50%</div>
-                </div>
-                <div className="flex-1 text-center p-3 bg-orange-500/10 border border-orange-500/30 rounded-lg">
-                  <div className="text-xs text-orange-400 mb-1">Parent</div>
-                  <div className="text-lg font-bold text-orange-400">12.5%</div>
-                </div>
-              </div>
-              <Link to="/blueprint">
-                <Button variant={ButtonVariant.GHOST} rightIcon={<ArrowRight className="w-4 h-4" />} className="text-teal-400 hover:bg-teal-500/10">
-                  Explore EARN
-                </Button>
-              </Link>
-            </div>
-            <div>
-              {/* Allocation visualization */}
-              <div className="bg-slate-900/80 border border-slate-700 rounded-xl p-6">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-2 h-2 rounded-full bg-teal-500"></div>
-                  <span className="text-xs text-slate-500 font-mono">ALLOCATION MODEL</span>
-                </div>
-                <div className="h-8 rounded-lg overflow-hidden flex mb-4">
-                  <div className="w-[37.5%] bg-gradient-to-r from-blue-600 to-blue-500"></div>
-                  <div className="w-[50%] bg-gradient-to-r from-teal-600 to-teal-500"></div>
-                  <div className="w-[12.5%] bg-gradient-to-r from-orange-600 to-orange-500"></div>
-                </div>
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  <div className="text-center">
-                    <BarChart3 className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-                    <div className="text-xs text-slate-500">Savings</div>
-                  </div>
-                  <div className="text-center">
-                    <Target className="w-8 h-8 text-teal-400 mx-auto mb-2" />
-                    <div className="text-xs text-slate-500">Lottery</div>
-                  </div>
-                  <div className="text-center">
-                    <Users className="w-8 h-8 text-orange-400 mx-auto mb-2" />
-                    <div className="text-xs text-slate-500">Parents</div>
-                  </div>
-                </div>
-                <div className="text-center text-slate-500 text-sm">
-                  Interactive simulator included
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: Engine/Demo Preview - Cyan/Teal tint */}
+      {/* Section 3: Engine/Demo Preview - Cyan/Teal tint */}
       <section className="py-24 bg-transparent text-white relative overflow-hidden z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-[#060912]/80 to-cyan-950/20 pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">

@@ -163,7 +163,6 @@ const SYSTEM_DATA: Record<string, SystemInfo> = {
       { stat: '3x', label: 'faster mastery identification', subtext: 'Through continuous assessment' },
       { stat: '94%', label: 'intervention accuracy', subtext: 'Predictive modeling' },
       { stat: '100%', label: 'skill verification rate', subtext: 'Verified Skill Ledger' },
-      { stat: '$50K+', label: 'potential student earnings', subtext: 'Merit token accumulation' },
     ],
   },
 };
@@ -787,9 +786,6 @@ const CTASection: React.FC = () => {
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link to="/technology" className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white font-medium rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
                   Explore the Technology <ArrowRight size={18} />
-                </Link>
-                <Link to="/blueprint" className="px-8 py-4 bg-white/5 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 transition-colors flex items-center justify-center">
-                  View the Blueprint
                 </Link>
               </div>
             </motion.div>
