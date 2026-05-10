@@ -172,7 +172,7 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
         style={{
           opacity: revealPhase >= 1 ? 1 : 0,
           left: logoInNav ? 'clamp(1rem, 2.5vw, 1.5rem)' : '50%',
-          top: logoInNav ? 'clamp(2rem, 3vw, 2.5rem)' : '50%',
+          top: logoInNav ? 'clamp(3rem, 4.5vw, 3.75rem)' : '50%',
           transform: logoInNav ? 'translateY(-50%)' : 'translate(-50%, -50%)',
         }}
       >
@@ -181,7 +181,7 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
           alt="AEIOS"
           className="transition-all duration-500"
           style={{
-            height: logoInNav ? 'clamp(2rem, 3.5vw, 2.75rem)' : 'clamp(5rem, 12vw, 8rem)',
+            height: logoInNav ? 'clamp(4rem, 7vw, 5.5rem)' : 'clamp(10rem, 24vw, 16rem)',
             width: 'auto',
             display: 'block',
           }}

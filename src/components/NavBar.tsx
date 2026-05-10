@@ -16,7 +16,7 @@ const NavBar = () => {
     <>
       <nav
         className="fixed top-0 left-0 right-0 z-50 bg-[#060912]/90 backdrop-blur-md border-b border-white/5"
-        style={{ height: 'clamp(4rem, 6vw, 5rem)' }}
+        style={{ height: 'clamp(6rem, 9vw, 7.5rem)' }}
       >
         {/* AEIOS Logo - Left */}
         <Link
@@ -33,7 +33,7 @@ const NavBar = () => {
             src="/logo.svg"
             alt="AEIOS"
             style={{
-              height: 'clamp(2rem, 3.5vw, 2.75rem)',
+              height: 'clamp(4rem, 7vw, 5.5rem)',
               width: 'auto',
               display: 'block',
             }}
@@ -146,7 +146,7 @@ const NavBar = () => {
       {mobileMenuOpen && (
         <div
           className="fixed inset-0 z-40 bg-[#060912]/95 backdrop-blur-md md:hidden"
-          style={{ paddingTop: 'clamp(5rem, 8vw, 6rem)' }}
+          style={{ paddingTop: 'clamp(7rem, 11vw, 8.5rem)' }}
         >
           <div className="flex flex-col items-center gap-8 pt-8">
             {navItems.map((item, idx) => {
