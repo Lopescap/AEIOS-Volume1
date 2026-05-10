@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AEIOS Logo Test</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: #cbd5e1;
+      background: #060912;
+    }
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 6rem;
+    }
+    h1 {
+      font-size: 1.25rem;
+      letter-spacing: 0.2em;
+      color: #94a3b8;
+      margin: 0 0 0.5rem;
+      text-transform: uppercase;
+    }
+    .lede {
+      color: #64748b;
+      font-size: 0.8rem;
+      margin: 0 0 2rem;
+      max-width: 60ch;
+      line-height: 1.5;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .label small {
+      display: block;
+      color: #475569;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 0.7rem;
+      margin-top: 0.25rem;
+    }
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .bg-site { background: #060912; }
+    .bg-mid  { background: #1e293b; }
+    .bg-light { background: #f1f5f9; border-color: rgba(0,0,0,0.1); }
+    .bg-white { background: #ffffff; border-color: rgba(0,0,0,0.1); }
+    .panel img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    .nav-size img { height: 28px; width: auto; }
+    .hero-size img { height: 96px; width: auto; }
+    .full-size img { width: 320px; height: auto; }
+    section {
+      margin-top: 3rem;
+    }
+    h2 {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #cbd5e1;
+      margin: 0 0 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    h2 small {
+      color: #475569;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      font-size: 0.75rem;
+      margin-left: 0.75rem;
+    }
+    .hint {
+      color: #64748b;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      margin: 1rem 0 0;
+    }
+    .hint code {
+      background: rgba(255,255,255,0.05);
+      color: #94a3b8;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.25rem;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>AEIOS Logo Test</h1>
+    <p class="lede">
+      Each variant rendered against the live site background (<code>#060912</code>) plus comparison surfaces.
+      Sizes match the actual nav (28px tall) and hero (96px tall) usage in <code>NavBar.tsx</code> and <code>Vision.tsx</code>.
+      Pick the variant that reads cleanest in the nav at small size, since that's where it lives 99% of the time.
+    </p>
+
+    <section>
+      <h2>Negative Version <small>fills: #0f1218 + #00c1fe</small></h2>
+      <div class="row">
+        <div class="label">Nav size <small>~28px tall</small></div>
+        <div class="swatch">
+          <div class="panel bg-site nav-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+          <div class="panel bg-mid nav-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+          <div class="panel bg-light nav-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+          <div class="panel bg-white nav-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Hero size <small>~96px tall</small></div>
+        <div class="swatch">
+          <div class="panel bg-site hero-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+          <div class="panel bg-white hero-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Full lockup</div>
+        <div class="swatch">
+          <div class="panel bg-site full-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+          <div class="panel bg-white full-size"><img src="/logos/AEIOS%20Negative%20Version.svg" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Negative Version-2 <small>fills: #fff + #0f1218 + #26344e + #00c1fe</small></h2>
+      <div class="row">
+        <div class="label">Nav size</div>
+        <div class="swatch">
+          <div class="panel bg-site nav-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-mid nav-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-light nav-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-white nav-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Hero size</div>
+        <div class="swatch">
+          <div class="panel bg-site hero-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-white hero-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Full lockup</div>
+        <div class="swatch">
+          <div class="panel bg-site full-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-white full-size"><img src="/logos/AEIOS%20Negative%20Version-2.svg" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Positive Version <small>fills: #fff + #0f1218 + #00c2ff + #26344e</small></h2>
+      <div class="row">
+        <div class="label">Nav size</div>
+        <div class="swatch">
+          <div class="panel bg-site nav-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+          <div class="panel bg-mid nav-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+          <div class="panel bg-light nav-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+          <div class="panel bg-white nav-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Hero size</div>
+        <div class="swatch">
+          <div class="panel bg-site hero-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+          <div class="panel bg-white hero-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Full lockup</div>
+        <div class="swatch">
+          <div class="panel bg-site full-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+          <div class="panel bg-white full-size"><img src="/logos/AEIOS%20Positive%20Version.svg" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Positive Version-2 <small>fills: #fff + #0f1218 + #26344e + #00c1fe</small></h2>
+      <div class="row">
+        <div class="label">Nav size</div>
+        <div class="swatch">
+          <div class="panel bg-site nav-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-mid nav-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-light nav-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-white nav-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Hero size</div>
+        <div class="swatch">
+          <div class="panel bg-site hero-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-white hero-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="label">Full lockup</div>
+        <div class="swatch">
+          <div class="panel bg-site full-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+          <div class="panel bg-white full-size"><img src="/logos/AEIOS%20Positive%20Version-2.svg" alt="" /></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="hint">
+      Tell me which variant + which size feels right (or "Positive Version-2 at nav size, no full lockup in nav") and I'll wire it into <code>NavBar.tsx</code> + <code>Vision.tsx</code>, build, commit, push.
+    </p>
+  </div>
+</body>
+</html>
