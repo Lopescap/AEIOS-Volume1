@@ -19,48 +19,26 @@ const NavBar = () => {
         style={{ height: 'clamp(4rem, 6vw, 5rem)' }}
       >
         {/* AEIOS Logo - Left */}
-        <div
+        <Link
+          to="/"
           className="absolute flex items-center"
           style={{
             left: 'clamp(1rem, 2.5vw, 1.5rem)',
             top: '50%',
             transform: 'translateY(-50%)',
-            gap: 'clamp(0.5rem, 1vw, 0.75rem)',
           }}
+          aria-label="AEIOS home"
         >
-          {/* AE Box */}
-          <div
-            className="relative flex items-center justify-center bg-slate-800 rounded-lg border border-slate-700 overflow-hidden"
+          <img
+            src="/logo.svg"
+            alt="AEIOS"
             style={{
-              width: 'clamp(1.5rem, 2vw, 2rem)',
-              height: 'clamp(1.5rem, 2vw, 2rem)',
+              height: 'clamp(2rem, 3.5vw, 2.75rem)',
+              width: 'auto',
+              display: 'block',
             }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 to-emerald-500/20"></div>
-            <span
-              className="font-mono font-bold text-slate-300 relative z-10"
-              style={{ fontSize: 'clamp(0.625rem, 1.2vw, 0.75rem)' }}
-            >
-              AE
-            </span>
-          </div>
-
-          {/* AEIOS text + System version - hidden on mobile */}
-          <div className="hidden sm:flex flex-col">
-            <span
-              className="font-mono tracking-widest text-slate-300"
-              style={{ fontSize: 'clamp(0.75rem, 1.5vw, 0.875rem)' }}
-            >
-              AEIOS
-            </span>
-            <span
-              className="font-mono tracking-wider uppercase text-slate-600"
-              style={{ fontSize: 'clamp(0.5rem, 1vw, 0.5625rem)' }}
-            >
-              System v1.0
-            </span>
-          </div>
-        </div>
+          />
+        </Link>
 
         {/* Desktop Nav Items - Centered (hidden on mobile) */}
         <div

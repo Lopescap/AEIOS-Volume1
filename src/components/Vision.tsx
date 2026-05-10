@@ -173,39 +173,19 @@ const RevealScreen = ({ visible, onComplete }: { visible: boolean; onComplete?: 
           opacity: revealPhase >= 1 ? 1 : 0,
           left: logoInNav ? 'clamp(1rem, 2.5vw, 1.5rem)' : '50%',
           top: logoInNav ? 'clamp(2rem, 3vw, 2.5rem)' : '50%',
-          gap: logoInNav ? '0.75rem' : '0.75rem',
           transform: logoInNav ? 'translateY(-50%)' : 'translate(-50%, -50%)',
         }}
       >
-        <div
-          className="relative flex items-center justify-center bg-slate-800 rounded-lg border border-slate-700 overflow-hidden transition-all duration-500"
+        <img
+          src="/logo.svg"
+          alt="AEIOS"
+          className="transition-all duration-500"
           style={{
-            width: logoInNav ? 'clamp(1.5rem, 2vw, 2rem)' : 'clamp(3rem, 6vw, 4rem)',
-            height: logoInNav ? 'clamp(1.5rem, 2vw, 2rem)' : 'clamp(3rem, 6vw, 4rem)',
+            height: logoInNav ? 'clamp(2rem, 3.5vw, 2.75rem)' : 'clamp(5rem, 12vw, 8rem)',
+            width: 'auto',
+            display: 'block',
           }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-sky-500/20 to-emerald-500/20"></div>
-          <span
-            className="font-mono font-bold text-slate-300 relative z-10 transition-all duration-500"
-            style={{ fontSize: logoInNav ? '0.75rem' : '1.5rem' }}
-          >
-            AE
-          </span>
-        </div>
-        <div className="flex flex-col transition-all duration-500">
-          <span
-            className="font-mono tracking-widest text-slate-300 transition-all duration-500"
-            style={{ fontSize: logoInNav ? '0.875rem' : '2rem' }}
-          >
-            AEIOS
-          </span>
-          <span
-            className="font-mono tracking-wider uppercase text-slate-600 transition-all duration-500"
-            style={{ fontSize: '0.5625rem', opacity: logoInNav ? 1 : 0 }}
-          >
-            System v1.0
-          </span>
-        </div>
+        />
       </div>
 
       {/* Spheres */}
