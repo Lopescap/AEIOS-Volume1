@@ -82,6 +82,7 @@ interface ArchitectureItem {
   label: string;
   desc: string;
   color: string;
+  sphereColor?: string;
 }
 
 interface SystemContextType {
@@ -205,10 +206,10 @@ const ARCHITECTURE_ITEMS: Record<string, ArchitectureItem[]> = {
     { icon: XCircle, label: 'Paper Credentials', desc: 'Easily faked, impossible to verify', color: 'from-red-500/20 to-red-600/20' },
   ],
   aeios: [
-    { icon: Database, label: 'AEIOS Atlas', desc: 'Unified knowledge architecture mapping curriculum, skills, and learning relationships', color: 'from-blue-500 to-blue-600' },
-    { icon: Cpu, label: 'AEIOS Navigator', desc: 'Reasoning engine that transforms data into actionable insights', color: 'from-cyan-500 to-cyan-600' },
-    { icon: Network, label: 'Digital Twin', desc: 'Per-student cognitive model', color: 'from-emerald-500 to-emerald-600' },
-    { icon: Lock, label: 'Skill Ledger', desc: 'Blockchain-verified credentials', color: 'from-purple-500 to-purple-600' },
+    { icon: Database, label: 'AEIOS Atlas', desc: 'Unified knowledge architecture mapping curriculum, skills, and learning relationships', color: 'from-blue-500 to-blue-600', sphereColor: '#94a3b8' },
+    { icon: Cpu, label: 'AEIOS Navigator', desc: 'Reasoning engine that transforms data into actionable insights', color: 'from-cyan-500 to-cyan-600', sphereColor: '#38bdf8' },
+    { icon: Network, label: 'Digital Twin', desc: 'Per-student cognitive model', color: 'from-emerald-500 to-emerald-600', sphereColor: '#2dd4bf' },
+    { icon: Lock, label: 'Skill Ledger', desc: 'Blockchain-verified credentials', color: 'from-purple-500 to-purple-600', sphereColor: '#ef4444' },
   ],
 };
 
@@ -707,13 +708,19 @@ const ArchitectureSection: React.FC = () => {
                       : 'bg-zinc-900/50 border-white/10 hover:border-cyan-500/30'
                   }`}
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform ${
-                    isLegacy
-                      ? 'bg-red-500/20'
-                      : `bg-gradient-to-br ${item.color}`
-                  }`}>
-                    <IconComponent className={`w-6 h-6 ${isLegacy ? 'text-red-400' : 'text-white'}`} />
-                  </div>
+                  {isLegacy ? (
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform bg-red-500/20">
+                      <IconComponent className="w-6 h-6 text-red-400" />
+                    </div>
+                  ) : (
+                    <div
+                      className="w-9 h-9 rounded-full mb-4 group-hover:scale-110 transition-transform"
+                      style={{
+                        backgroundColor: item.sphereColor,
+                        boxShadow: `0 0 18px ${item.sphereColor}80`,
+                      }}
+                    />
+                  )}
                   <h3 className={`font-bold mb-2 ${isLegacy ? 'text-red-300' : 'text-white'}`}>{item.label}</h3>
                   <p className="text-sm text-zinc-500">{item.desc}</p>
                 </motion.div>
