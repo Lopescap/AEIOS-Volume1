@@ -39,21 +39,41 @@ content — the site's argument is its product.
 
 - Canonical GitHub repo: `Lopescap/AEIOS-Volume1` (PUBLIC visibility as of 2026-05-07)
 - The Vite app lives at the repo root — no nested workspace dir
-- Vercel auto-deploys from `main` on push
 - Two URLs in production:
   - **Custom domain (canonical):** `https://www.aeios.io/`
   - **Vercel-generated alias (use for deploy-URL lookup):** `https://aeios-volume1.vercel.app/`
-- HashRouter implication for deploy-URL reporting: the bot's deployment URL
+- HashRouter implication for deploy-URL reporting: the deployment URL
   lookup yields the bare hostname; specific routes require the `#/path` suffix
   (e.g. `https://www.aeios.io/#/mission`). When reporting a preview URL after
   a push, default to the bare URL unless the operator asks about a specific route.
 
-Current deployment behavior:
+## Branch And PR Workflow — READ THIS BEFORE ANY GIT OPERATION
 
-- The normal workflow is: edit repo → push to GitHub `main` → Vercel deploys automatically
-- Push commits authored by `reedrich12` are the existing pattern — the bot's commits
-  should match that committer identity unless explicitly redirected
-- Vercel CLI access is not required for normal site edits
+The live site is protected. **`main` is the production branch and deploys to
+`https://www.aeios.io/`. You must NEVER commit to or push to `main` directly** —
+it is branch-protected and direct pushes will be rejected. All work happens on
+the `staging` branch and reaches production only through a reviewed pull request.
+
+Your working branch is **`staging`**. The VM checkout is already on it.
+
+The required workflow for every change:
+
+1. Confirm you are on `staging`: `git rev-parse --abbrev-ref HEAD` → must print `staging`.
+   If not, `git checkout staging` first. Never `git checkout main` to do work.
+2. Make your edits and run the build (`npm run build`) — keep it green.
+3. Commit with the `reedrich12` committer identity (the existing pattern).
+4. Push to `staging`: `git push origin staging`.
+5. Vercel automatically builds a **preview deployment** for `staging`. That preview
+   is where the operator reviews the change — the live site is untouched.
+6. Open a pull request from `staging` → `main` with `gh pr create` (base `main`,
+   head `staging`). Summarize what changed and link the preview. Report the PR URL.
+   If an open `staging → main` PR already exists, push to `staging` updates it —
+   do not open a duplicate; just report the existing PR URL.
+7. **Stop there.** A human reviews the preview and merges the PR. You do not merge
+   to `main` and you do not need Vercel CLI access. Going live is the operator's call.
+
+Rollback is free: if a change on `staging` is wrong, fix it on `staging` or reset
+the branch — nothing reached production until the PR was merged.
 
 ## Design System
 
